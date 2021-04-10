@@ -28,6 +28,12 @@ Once the refernce is derfined the only task to accomplish is pointing the magnet
 
 ![Skectch](images/new_cal.png)
 
+From this two measurements it is possible to solve for **off** and **s** at each axis axis using this symple system of equations 
+
+H<sup>sensed(+)</sup> = (H<sup>real</sup> + **off**) x **s**
+H<sup>sensed(-)</sup> = (-H<sup>real</sup> + **off**) x **s**
+
+where H<sup>real</sup> is known and H<sup>sensed(-)</sup> and H<sup>sensed(+)</sup> are derived from the measurments (in the same and opposit direction of the reference respectively)
 
 
 
