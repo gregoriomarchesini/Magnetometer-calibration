@@ -26,8 +26,7 @@ The MC coalibration consist in two simple steps that are to be repeated for each
 Once the refernce is derfined the only task to accomplish is pointing the magnetometer axis aligned with the refernce magnetic field. Then one measurements should be taken in the same direction of the reference and a second one should be taken in the opposit direction. The following figure illustartes the process :
 
 
-
-
+![Skectch](images/new_cal.png)
 
 
 
