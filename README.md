@@ -1,4 +1,4 @@
-# Magnetometer_calibration_techniques
+# Magnetometer calibration techniques
 
 # Introduction
 The following repository contains three different script for the calibration of a tri-axes magnetometer which needs to be calibrated for hard/soft ferromagnetic interfernce and scale factors .
@@ -9,7 +9,30 @@ It is important to note that only scale factor and hard ferromagnetic interfernc
 and soft ferromagnetic interference are present. The only method that is able to calibrate all the aforementioned sources of bias (hard/soft ferromagnetic interfernce, scale factors and 
 non-orthogonalities) is the ALQ method, which development is based on [3]. Both MC and NLLS solve only for hard ferromagnetic inetrfernce (offset from now on) and scale factor.
 
+Given the this semplifications, it is important to define a simple model that describes how the magnetometer senses and external magnetic field. A complete and precise mathematical description of a magnetometer can be found in [3], but a simplified version is given herein for pratical reasons. Each axis of the magnetometer gives one of the three componet of a refernce magnetic field that it is measured (it can be an artificial magnetic field or the geomagnetic fiedl in most of the cases). However, the measurnments along each axis is biased by a ceratain offset (hard ferromagnetic interference) and a ceratin scale factor. This means in the former case that even with zero external field, the magnetomegter senses a nn-zero magnetic field that is diffrent for each axis. In the latter case, the problem is that the external magnetic field is measured with a constant multiplicative factor that is different for each axis. Hence it is possible to describe the measured magnetic field along each axis (x axis of the magnetometer for example) as:
+
+H<sup>sensed</sup> = (H<sup>real</sup> + **off**) x **s**
+  
+Where H<sup>real</sup> is the true magnetic field componet along one axis, **off** is the offset and **s** is the scale factor. The whole iam of the calibration is to find the value of offset and scale factor for each axis, so that at the end it will be possible to obtain correct measurements from the magnetometer using the obtained calibration parameters. A total of six parameters are to be determined that can be stacked into a vector 
+
+beta = [off<sub>x</sub> off<sub>y</sub> off<sub>z</sub> s<sub>x</sub> s<sub>y</sub> s<sub>z</sub>]
+  
 # Manual Calibration
+
+## Description
+ 
+The MC coalibration consist in two simple steps that are to be repeated for each axis, for a total of three times. First it will be necessary to have at disposal a known magnetic field field in both direction and intesity. This can be an external artificial magnetic field or or the geomagnetic field which can be obtained from <code>igrf()</code> in Matlab for example (or an online calculator like the one [here](http://www.geomag.bgs.ac.uk/data_service/models_compass/igrf_calc.html).
+
+Once the refernce is derfined the only task to accomplish is pointing the magnetometer axis aligned with the refernce magnetic field. Then one measurements should be taken in the same direction of the refernce and the other one should be taken in the opposit direction ad from the following figure
+
+
+
+
+
+
+
+
+
 
 # LLSQ Calibration 
 
