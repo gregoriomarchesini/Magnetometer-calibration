@@ -19,7 +19,7 @@ beta = [off<sub>x</sub> off<sub>y</sub> off<sub>z</sub> s<sub>x</sub> s<sub>y</s
 
 Graphically this correspond in resetting the measurements from an ellipsoid to a sphere with radious equal to the refernce magnetic fiedl intensity. This is becasuse, the magnetic field must always have the same intensity even if the magnetometer is rotating if no bias is affecting the measurements or if the bias is properly calibrated. The compoent of the magnetic field will change as the magnetometer changes orientation, but ideally the magnitude of the magnetic field vecotor must be constant.
 
-![Skectch](images/Mist_scatter.png)
+![scatter](images/Mist_scatter.eps)
   
 # Manual Calibration
 
