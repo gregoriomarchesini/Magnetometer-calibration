@@ -47,7 +47,7 @@
 
 dec_mag = 6.880;                % [deg] Declination ((+)eastward)          
 inc_mag = 72.798;               % [deg] Inclination ((+)downward)
-M_int   = 51.668;               % [microT] 
+M_int   = 51.668;     % [microT] 
                            
 %% Magnetic field decomposition
 
@@ -105,12 +105,12 @@ disp('––––––––––––––––––––––––�
 disp('––––––––––––––––––––––––––––––––––––––––––––––')
 
 fprintf('offset in x : %g microT\n',offset_x)
-fprintf('offset in y : %g microT\n',offset_y)
-fprintf('offset in z : %g microT\n\n',offset_z)
+fprintf('offset in y : %g microT\n',offset_x)
+fprintf('offset in z : %g microT\n\n',beta_k(3))
 
-fprintf('scale factor in x : %g \n',Scale_x)
-fprintf('scale factor in y : %g \n',Scale_y)
-fprintf('scale factor in z : %g \n',Scale_z)
+fprintf('scale factor in x : %g \n',beta_k(4))
+fprintf('scale factor in y : %g \n',beta_k(5))
+fprintf('scale factor in z : %g \n',beta_k(6))
 
 disp('––––––––––––––––––––––––––––––––––––––––––––––')
 disp('––––––––––––––––––––––––––––––––––––––––––––––')
