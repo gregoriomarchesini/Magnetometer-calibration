@@ -19,9 +19,9 @@ beta = [off<sub>x</sub> off<sub>y</sub> off<sub>z</sub> s<sub>x</sub> s<sub>y</s
 
 Graphically this correspond in resetting the measurements from an ellipsoid to a sphere with radious equal to the refernce magnetic fiedl intensity. This is becasuse, the magnetic field must always have the same intensity even if the magnetometer is rotating if no bias is affecting the measurements or if the bias is properly calibrated. The compoent of the magnetic field will change as the magnetometer changes orientation, but ideally the magnitude of the magnetic field vecotor must be constant.
 
-|![scatter](images/Mist_scatter.eps)|
+|![scatter](images/scatter1.jpg)|
 |:--:| 
-| *Space* |
+| Fig1 : scatter plot  of a batch of random measurements pointing measuremenst taken with the magnetometer |
   
 # Manual Calibration
 
@@ -188,9 +188,12 @@ The parameter ```sigma``` refers to the variance of the noise affecting  the mea
 
 The solution to the problem will be given as the matrix A which contains the scale factors in the diagonal and the vector off that has the name ```b``` in the code. All the variable in the code follow the notation used in [1].
 
-|![](<images/fig3.png>)|
+|![](<images/scatter_sol.jpg>)|
 |:--:| 
 | Fig 2: MC calibration measurnments for calibration|
+
+The Graphical result from the calibration can be appreciated by Fig3. The sphere represent the ideal magnetometer measurments which shoul all have the same intensity equal to the external magnetoic field intensity for any given random direction. The blue dots are rest on the ideal sphere after the calibartion is succesfully accomplished.
+
 
 
 # References
