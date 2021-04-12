@@ -230,6 +230,8 @@ fprintf('\n')
 disp('The full correction matrix with non-orthogonslities') 
 disp('and soft ferromagnetic interference is')
 fprintf('\n')
+
+
 disp(A_inv)
 disp('––––––––––––––––––––––––––––––––––––––––––––––')
 disp('––––––––––––––––––––––––––––––––––––––––––––––')

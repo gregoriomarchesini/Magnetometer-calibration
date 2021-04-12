@@ -108,7 +108,7 @@ it         = 10                        ;    % Number of iterations in the method
 
 %% Model Implementation
 
-f=@(mx,my,mz)((mx-offx)*sx).^2+((my-offy)*sy).^2+((mz-offz)*sz).^2;
+f=@(mx,my,mz)((mx/sx-offx)).^2+((my/sy-offy)).^2+((mz/sz-offz)).^2;
 
 % The function is half-symbolic and half-handle. I want to create multiple 
 % symbolic functions starting from the observations 
@@ -118,12 +118,15 @@ f=@(mx,my,mz)((mx-offx)*sx).^2+((my-offy)*sy).^2+((mz-offz)*sz).^2;
 % CHANGE THE FIRST GUESS IF NECESSARY 
 % FIRST GUESS  = [offx      offy     offz   sx   sy sz ]
 
-beta_k         = [9.96964 -23.8805 -37.2931  0.4   0.4   0.4 ]';  % b in the model description
+beta_k         = [9 -10 -16  2   2  2]';  % b in the model description
 Delta_beta     = ones(6,1);                                       % delta_beta is the parameters step after each iteration  b_k+1 = b_k + delta_b
 
 % NOTE : the offeset are taken from the zero-field measurements that where
 % performed as part of the calibration procedure. A isolated cage was used
-% to obtaine this initialization parameters 
+% to obtaine this initialization parameters. remeber that the offset
+% measured in the zero field cage is still affected by the scale factor, so
+% I divided the value obtained in the zero-field cage by two as first guess
+% considering the scale factor equal to two
 
 
 %% Multidimensional Function inizialization
@@ -164,9 +167,9 @@ end
 % Correction phase
 % ––––––––––––––––
 
-observation_cor(:,1) = (observation(:,1)-beta_k(1))*beta_k(4);
-observation_cor(:,2) = ((observation(:,2)-beta_k(2))*beta_k(5));
-observation_cor(:,3) = (observation(:,3)-beta_k(3))*beta_k(6);
+observation_cor(:,1) = observation(:,1)*1/beta_k(4)-beta_k(1);
+observation_cor(:,2) = observation(:,2)*1/beta_k(5)-beta_k(2);
+observation_cor(:,3) = observation(:,3)*1/beta_k(6)-beta_k(3);
 
 
 %% GARFICAL REPERESENTATION OF THE RESULTS 
