@@ -194,6 +194,17 @@ The solution to the problem will be given as the matrix A which contains the sca
 
 The Graphical result from the calibration can be appreciated by Fig3. The sphere represent the ideal magnetometer measurments which shoul all have the same intensity equal to the external magnetoic field intensity for any given random direction. The blue dots are rest on the ideal sphere after the calibartion is succesfully accomplished.
 
+# Summary 
+
+|LIST OF FUNCTIONS|Brief Description|
+|---------------- |---|
+|```ALS_calibration.m.```        | ALS Calibration script|
+|```Calibration_data.mat. ```    | File where you can same your solved parameters after each calibartion|
+|```First_order_calibration.m``` | MC calibration script|
+|```fitter.m        ```          | NLLS calibration script|
+|```mag_batch.mat  ```           | Batch of random measurments to use as samples for the calibration algorithms|
+|```vec_s_inv.m   ```            | Auxiliary routine needed for ALS calibration|
+|``` vec_s.m     ```             | Auxiliary routine needed for ALS calibration|
 
 
 # References
