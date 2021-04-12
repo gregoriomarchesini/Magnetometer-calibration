@@ -1,7 +1,7 @@
 # Magnetometer calibration techniques
 
 # Introduction
-The following repository contains three different script for the calibration of a tri-axes magnetometer which needs to be calibrated for hard/soft ferromagnetic interfernce and scale factors .
+The following repository contains three different scripts for the calibration of a tri-axes magnetometer which needs to be calibrated for hard/soft ferromagnetic interfernce and scale factors .
 The three calibration procedure proposed herein are **Manual Calibration(MC)**,**Non-Linear Least Square Calibration (NLLS)** and **Adjusted Ordinary Least Square Calibration (ALQ)**.
 All the three methods are briefly explained here together with a complete description of how to use the given scripts to solve the calibration for each method.
 
