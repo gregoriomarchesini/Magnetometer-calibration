@@ -19,7 +19,9 @@ beta = [off<sub>x</sub> off<sub>y</sub> off<sub>z</sub> s<sub>x</sub> s<sub>y</s
 
 Graphically this correspond in resetting the measurements from an ellipsoid to a sphere with radious equal to the refernce magnetic fiedl intensity. This is becasuse, the magnetic field must always have the same intensity even if the magnetometer is rotating if no bias is affecting the measurements or if the bias is properly calibrated. The compoent of the magnetic field will change as the magnetometer changes orientation, but ideally the magnitude of the magnetic field vecotor must be constant.
 
-![scatter](images/Mist_scatter.eps)
+|![scatter](images/Mist_scatter.eps)|
+|:--:| 
+| *Space* |
   
 # Manual Calibration
 
@@ -30,19 +32,52 @@ The MC coalibration consist in two simple steps that are to be repeated for each
 Once the refernce is derfined the only task to accomplish is pointing the magnetometer axis aligned with the refernce magnetic field. Then one measurements should be taken in the same direction of the reference and a second one should be taken in the opposit direction. The following figure illustartes the process :
 
 
-![Skectch](images/new_cal.png)
+|![Skectch](images/new_cal.png)|
+|:--:| 
+| Fig 2: MC calibration measurnments for calibration|
 
 From this two measurements it is possible to solve for **off** and **s** at each axis axis using this symple system of equations 
 
 H<sup>sensed(+)</sup> = (H<sup>real</sup> + **off**) x **s**
+
 H<sup>sensed(-)</sup> = (-H<sup>real</sup> + **off**) x **s**
 
-where H<sup>real</sup> is known and H<sup>sensed(-)</sup> and H<sup>sensed(+)</sup> are derived from the measurments (in the same and opposit direction of the reference respectively)
+where H<sup>real</sup> is known and H<sup>sensed(-)</sup> and H<sup>sensed(+)</sup> are derived from the measurments (in the same and opposite direction of the reference respectively like in the figure above)
 
 
+## MC Calibration Code
+The script that accomplish the MC calibration is the m-file <code>First_order_calibration<\code>. in the preamble of the script you are requested to insert the main parameters of the IGRF refernce geomagnetic field at your location since this values will be used in your calibration.
+The following is an example of the preamble you will find
+  
+  '''
+  %%  Calibration  Parameters from IGRF Model :
 
+dec_mag = 6.880;                % [deg] Declination ((+)eastward)          
+inc_mag = 72.798;               % [deg] Inclination ((+)downward)
+M_int   = 51.668;               % [microT] 
+                           
+%% Magnetic field decomposition
 
+M_down  = M_int*sind(inc_mag);                 %(positive downward)
+M_est   = M_int*cosd(inc_mag)*sind(dec_mag);
+M_north = M_int*cosd(inc_mag)*cosd(dec_mag);
 
+M_ref   = M_int;                               % the reference direction used for
+                                               % for the calibration
+%% MEASURED OUTPUTS : TO BE INSERTED MANUALLY
+
+magx_axis_pos_test =    124.941;    % [microT] microTesla
+magx_axis_neg_test =    -101.53 ;   % [microT] microTesla
+
+magy_axis_pos_test =    90.9156;    % [microT] microTesla
+magy_axis_neg_test =   -99.2445 ;   % [microT] microTesla
+
+magz_axis_pos_test =    63.3693;    % [microT] microTesla
+magz_axis_neg_test =   -155.81;     % [microT] microTesla
+'''
+
+ciao
+  
 
 
 
