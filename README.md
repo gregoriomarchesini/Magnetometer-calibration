@@ -46,37 +46,46 @@ where H<sup>real</sup> is known and H<sup>sensed(-)</sup> and H<sup>sensed(+)</s
 
 
 ## MC Calibration Code
-The script that accomplish the MC calibration is the m-file <code>First_order_calibration<\code>. in the preamble of the script you are requested to insert the main parameters of the IGRF refernce geomagnetic field at your location since this values will be used in your calibration.
+The script that accomplish the MC calibration is the m-file <code>First_order_calibration</code>. in the preamble of the script you are requested to insert the main parameters of the IGRF refernce geomagnetic field at your location since this values will be used in your calibration.
 The following is an example of the preamble you will find
   
-  '''
-  %%  Calibration  Parameters from IGRF Model :
+'''
+$ %%  Calibration  Parameters from IGRF Model :
 
-dec_mag = 6.880;                % [deg] Declination ((+)eastward)          
-inc_mag = 72.798;               % [deg] Inclination ((+)downward)
-M_int   = 51.668;               % [microT] 
-                           
-%% Magnetic field decomposition
+$ dec_mag = 6.880;                % [deg] Declination ((+)eastward) 
 
-M_down  = M_int*sind(inc_mag);                 %(positive downward)
-M_est   = M_int*cosd(inc_mag)*sind(dec_mag);
-M_north = M_int*cosd(inc_mag)*cosd(dec_mag);
+$ inc_mag = 72.798;               % [deg] Inclination ((+)downward)
 
-M_ref   = M_int;                               % the reference direction used for
+$ M_int   = 51.668;               % [microT]                           
+
+$ %% Magnetic field decomposition
+
+$ M_down  = M_int*sind(inc_mag);                 %(positive downward)
+
+$ M_est   = M_int*cosd(inc_mag)*sind(dec_mag);
+
+$ M_north = M_int*cosd(inc_mag)*cosd(dec_mag);
+
+$ M_ref   = M_int;                               % the reference direction used for
+
                                                % for the calibration
-%% MEASURED OUTPUTS : TO BE INSERTED MANUALLY
+$ %% MEASURED OUTPUTS : TO BE INSERTED MANUALLY
 
-magx_axis_pos_test =    124.941;    % [microT] microTesla
-magx_axis_neg_test =    -101.53 ;   % [microT] microTesla
+$ magx_axis_pos_test =    124.941;    % [microT] microTesla
 
-magy_axis_pos_test =    90.9156;    % [microT] microTesla
-magy_axis_neg_test =   -99.2445 ;   % [microT] microTesla
+$ magx_axis_neg_test =    -101.53 ;   % [microT] microTesla
 
-magz_axis_pos_test =    63.3693;    % [microT] microTesla
-magz_axis_neg_test =   -155.81;     % [microT] microTesla
+$ magy_axis_pos_test =    90.9156;    % [microT] microTesla
+
+$ magy_axis_neg_test =   -99.2445 ;   % [microT] microTesla
+
+$ magz_axis_pos_test =    63.3693;    % [microT] microTesla
+
+$ magz_axis_neg_test =   -155.81;     % [microT] microTesla
 '''
 
-ciao
+
+
   
 
 
