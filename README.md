@@ -188,6 +188,9 @@ The parameter ```sigma``` refers to the variance of the noise affecting  the mea
 
 The solution to the problem will be given as the matrix A which contains the scale factors in the diagonal and the vector off that has the name ```b``` in the code. All the variable in the code follow the notation used in [1].
 
+|![](<images/fig3.png>)|
+|:--:| 
+| Fig 2: MC calibration measurnments for calibration|
 
 
 # References
