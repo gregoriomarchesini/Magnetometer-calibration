@@ -192,7 +192,7 @@ sphere           = mesh(X,Y,Z)   ;
 sphere.FaceAlpha = 0.2           ;
 
 scatter3(observation(1,:),observation(2,:),observation(3,:),200,'b','filled')
-%scatter3(h(1,:),h(2,:),h(3,:),200,'r','filled');
+scatter3(h(1,:),h(2,:),h(3,:),200,'r','filled');
 xlabel('\muT')
 ylabel('\muT')
 zlabel('\muT')
