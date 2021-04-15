@@ -2,12 +2,10 @@
 
 # Introduction
 The following repository contains three different scripts for the calibration of a tri-axes magnetometer which needs to be calibrated for hard/soft ferromagnetic interfernce and scale factors .
-The three calibration procedure proposed herein are **Manual Calibration(MC)**,**Non-Linear Least Square Calibration (NLLS)** and **Adjusted Ordinary Least Square Calibration (ALQ)**.
+The three calibration procedures proposed herein are **Manual Calibration(MC)**,**Non-Linear Least Square Calibration (NLLS)** and **Adjusted Ordinary Least Square Calibration (ALQ)**.
 All the three methods are briefly explained here together with a complete description of how to use the given scripts to solve the calibration for each method.
 
-It is important to note that only scale factor and hard ferromagnetic interfernce will be considered in the calibration as main sources of measurement bias, although non-orthogonalitoes 
-and soft ferromagnetic interference are present. The only method that is able to calibrate all the aforementioned sources of bias (hard/soft ferromagnetic interfernce, scale factors and 
-non-orthogonalities) is the ALQ method, which development is based on [3]. Both MC and NLLS solve only for hard ferromagnetic inetrfernce (offset from now on) and scale factor.
+It is important to note that only scale factor and hard ferromagnetic interfernce will be considered in the calibration as main sources of measurement bias, although non-orthogonalities and soft ferromagnetic interference are still present. The only method that is able to account for all the aforementioned sources of bias (hard/soft ferromagnetic interfernce, scale factors and non-orthogonalities) is the ALQ method, that is developed directly following the procedure described in [[2](https://www.researchgate.net/publication/303721929_Complete_triaxis_magnetometer_calibration_in_the_magnetic_domain)],[[2](https://www.researchgate.net/publication/39994614_Consistent_least_squares_fitting_of_ellipsoids)]. Both MC and NLLS solve only for hard ferromagnetic inetrfernce (offset from now on) and scale factor.
 
 Given the this semplifications, it is important to define a simple model that describes how the magnetometer senses and external magnetic field. A complete and precise mathematical description of a magnetometer can be found in [3], but a simplified version is given herein for pratical reasons. Each axis of the magnetometer gives one of the three componet of a refernce magnetic field that it is measured (it can be an artificial magnetic field or the geomagnetic fiedl in most of the cases). However, the measurnments along each axis is biased by a ceratain offset (hard ferromagnetic interference) and a ceratin scale factor. This means in the former case that even with zero external field, the magnetomegter senses a nn-zero magnetic field that is diffrent for each axis. In the latter case, the problem is that the external magnetic field is measured with a constant multiplicative factor that is different for each axis. Hence it is possible to describe the measured magnetic field along each axis (x axis of the magnetometer for example) as:
 
@@ -209,8 +207,8 @@ The Graphical result from the calibration can be appreciated by Fig3. The sphere
 
 # References
 
-[1] Markovsky, Ivan & Kukush, Alexander & Huffel, Sabine. (2004).* Consistent least squares fitting of ellipsoids*. Numerische Mathematik. 98. 10.1007/s00211-004-0526-9. 
+[1] Markovsky, Ivan & Kukush, Alexander & Huffel, Sabine. (2004).[* Consistent least squares fitting of ellipsoids*](https://www.researchgate.net/publication/39994614_Consistent_least_squares_fitting_of_ellipsoids). Numerische Mathematik. 98. 10.1007/s00211-004-0526-9. 
 
-[2] Renaudin, Valérie, Muhammad Haris Afzal, and Gérard Lachapelle. *Complete triaxis magnetometer calibration in the magnetic domain.* Journal of sensors 2010 (2010).
+[2] Renaudin, Valérie, Muhammad Haris Afzal, and Gérard Lachapelle. [*Complete triaxis magnetometer calibration in the magnetic domain.*](https://www.researchgate.net/publication/303721929_Complete_triaxis_magnetometer_calibration_in_the_magnetic_domain) Journal of sensors 2010 (2010).
 
 [3] Kelley, Carl T. Iterative methods for optimization. Society for Industrial and Applied Mathematics, 1999.
