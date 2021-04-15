@@ -190,13 +190,18 @@ H                 = 51                     ;  % microT
 
 The parameter ```sigma``` refers to the variance of the noise affecting the measurments and can be estimated by plotting the measurment profile over time with the magnetometer fixed in space(Fig 3). Once you have the profile over time, it is possible to estimate the variance of the noise affecting the measurement along each axis and the largest value will be uploaded in the code. Once again it is possible to use the parameter ```decimation```in order to decimate the number of sample used in the algorithm.
 
+
+|![](<images/mag_frame_field.jpg>)|
+|:--:| 
+| Fig 3: Profile of the magnetometer measurements at a fixed location and position over time|
+
 The solution to the problem will be given as the matrix A which contains the scale factors in the diagonal and the vector off that has the name ```b``` in the code. All the variables in the code follow the notation used in [1] taht may differ from the ones given herein.
 
 |![](<images/scatter_sol.jpg>)|
 |:--:| 
-| Fig 2: Scatter plot of the final calibartion. Blue dots are the initial measurements, while the red dots are the calibrated measurements. It is possible to appreciate how the blue dots are reset on the ideal sphere |
+| Fig 4: Scatter plot of the final calibartion. Blue dots are the initial measurements, while the red dots are the calibrated measurements. It is possible to appreciate how the blue dots are reset on the ideal sphere |
 
-The Graphical result from the calibration can be appreciated by Fig3. The sphere represent the ideal magnetometer measurments which shoul all have the same intensity equal to the external magnetoic field intensity for any given random direction. The blue dots are rest on the ideal sphere after the calibartion is succesfully accomplished.
+The Graphical result from the calibration can be appreciated by Fig 4. The sphere represent the ideal magnetometer measurments which shoul all have the same intensity equal to the external magnetoic field intensity for any given random direction. The blue dots are rest on the ideal sphere after the calibartion is succesfully accomplished.
 
 # Summary 
 Here is brief summary of the functions that can be found in the repository for completeness 
