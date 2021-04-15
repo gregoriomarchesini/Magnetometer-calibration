@@ -21,7 +21,7 @@ Graphically this correspond in resetting the measurements from an ellipsoid to a
 
 |![scatter](images/scatter1.jpg)|
 |:--:| 
-| Fig1 : Scatter plot  of a batch of random measurements pointing measuremenst taken with the magnetometer |
+| Fig1 : Scatter plot of a batch of random measurements |
   
 # Manual Calibration
 
@@ -43,7 +43,7 @@ The following figure illustartes  **Step 1** and **Step 2** graphically :
 
 |![Skectch](images/new_cal.png)|
 |:--:| 
-| Fig 2: MC calibration measurenments steps|
+| Fig 2: MC calibration measurements steps|
 
 From this two measurements it is possible to solve for **off** and **s** at each axis axis using this symple system of equations 
 
