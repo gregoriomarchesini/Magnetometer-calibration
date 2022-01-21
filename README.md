@@ -158,17 +158,20 @@ The parameters that are to be initialised are summarised here :
 Once this parameters are defined, the script solves the problem automatically and the results are output from the code anologously at the MC method. The model to follow to calibrate the measurments is always the same as in MC
 
 # Adjuasted Least Square Calibration
-The ALS method is conceptually identical to the NLLS method exept for the fact that the model *f* is linear. This fact results in saving computational time and the elimination of any dependancy from an initial guess. The mathematical proofs and logic behind the method are fully explained in [[2](https://www.researchgate.net/publication/303721929_Complete_triaxis_magnetometer_calibration_in_the_magnetic_domain)],[[1](https://www.researchgate.net/publication/39994614_Consistent_least_squares_fitting_of_ellipsoids)]. No indeepth analysis will be given herein. However it is intersting to understand which one is the model implemeted by this method.
+The ALS method is conceptually identical to the NLLS method exept for the fact that the model *f* is linear. This fact results in saving computational time and the elimination of any dependancy from an initial guess. The mathematical proofs and logic behind the method are fully explained in [[2](https://www.researchgate.net/publication/303721929_Complete_triaxis_magnetometer_calibration_in_the_magnetic_domain)],[[1](https://www.researchgate.net/publication/39994614_Consistent_least_squares_fitting_of_ellipsoids)]. No indeepth analysis will be given herein. However recommended to read the give documents for an indepth understanding of the calibration process. It is nothing more compliocated than a LEAST SQUARE Probelm.
 
-The model f  is 
 
-f = A^-1(H_<sub>measured</sub>) - offset
+As before there is **measured magnetic field** and a **real** external magnetic which value is obtained by a calibrated magnetometer (or a thrusted measure of it). The problem is do determine the offset and scale factor that affects the magnetometer that is desired to calibrate. ONce again the formula defining the measured magnetic field is given by
 
-where A is named shape matrix and it is uknown. A contains the scale factors in the diagonal and additional off-diagonal parameters that take into account for non-orthogonalities in the axes of the magnetometer. H_<sub>measured</sub> is the 3x1 vector containing a single measurement from the magnetometer for example. The offset is the usual hard ferromagnetic field interfernce. The solution to the probelm is found minimising the sum of the residuals squared :
+H_<sub>measured</sub> =  A H_<sub>real</sub> + offset
 
-min(S) = min(sum(H^2-(A^-1(H_<sub>measured</sub>) - offset)^2) for i=1,2,3 .. N
+where A is named shape matrix and it is uknown. A contains the scale factors in the diagonal and additional off-diagonal parameters that take into account for non-orthogonalities in the axes of the magnetometer. H_<sub>measured</sub> is the 3x1 vector containing a single measurement from the magnetometer for example. The offset is the usual hard ferromagnetic field interfernce.
 
-which is equivalent to find the shape matrix A that best fits a set of H_<sub>measured</sub> to an ellipsoid.
+Since we know H_<sub>real</sub> (by a thrusted magnetometer or other means), it is possible to define a LEAST SQUARE problem like
+
+A*,offset* = argmin(sum(H^2-(A^-1(H_<sub>measured</sub>) - offset)^2) for i=1,2,3 .. N
+
+which is equivalent to find the shape matrix A and offset that best fits a set of H_<sub>measured</sub> to an ellipsoid.
 
 ## ALS Calibration Code
 The script ```ALS_calibration.m``` solves the ALS calibration. For this script it only necessary to load the proper random measurements set and update the magnetic field intensity at the location of the calibartion : 
@@ -201,7 +204,12 @@ The solution to the problem will be given as the matrix A which contains the sca
 |:--:| 
 | Fig 4: Scatter plot of the final calibartion. Blue dots are the initial measurements, while the red dots are the calibrated measurements. It is possible to appreciate how the blue dots are reset on the ideal sphere |
 
-The Graphical result from the calibration can be appreciated by Fig 4. The sphere represent the ideal magnetometer measurments which shoul all have the same intensity equal to the external magnetoic field intensity for any given random direction. The blue dots are rest on the ideal sphere after the calibartion is succesfully accomplished.
+The Graphical result from the calibration can be appreciated by Fig 4. The sphere represent the ideal magnetometer measurments which should all have the same intensity equal to the external magnetic field intensity for any given random direction. The blue dots are reset on the ideal sphere after the calibartion is succesfully accomplished. To pass from calibrated to uncalibrated measurement is is siomply a matter of applying the standard model for the measured magnetic field as given before :
+
+H_<sub>measured</sub> =  A H_<sub>real</sub> + offset
+H_<sub>calibrated</sub> = A^-1(H_<sub>measured</sub>) - offset
+
+hopefully H_<sub>calibrated</sub> wioll be close anough to H_<sub>real</sub> after the calibration
 
 # Summary 
 Here is brief summary of the functions that can be found in the repository for completeness 
