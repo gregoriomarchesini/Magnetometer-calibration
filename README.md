@@ -5,7 +5,7 @@ The following repository contains three different scripts for the calibration of
 The three calibration procedures proposed herein are **Manual Calibration(MC)**,**Non-Linear Least Square Calibration (NLLS)** and **Adjusted Ordinary Least Square Calibration (ALQ)**.
 All the three methods are briefly explained here together with a complete description of how to use the given scripts to solve the calibration for each method.
 
-It is important to note that only scale factor and hard ferromagnetic interfernce will be considered in the calibration as main sources of measurement bias, although non-orthogonalities and soft ferromagnetic interference are still present. The only method that is able to account for all the aforementioned sources of bias (hard/soft ferromagnetic interfernce, scale factors and non-orthogonalities) is the ALQ method, that is developed directly following the procedure described in [[2](https://www.researchgate.net/publication/303721929_Complete_triaxis_magnetometer_calibration_in_the_magnetic_domain)],[[1](https://www.researchgate.net/publication/39994614_Consistent_least_squares_fitting_of_ellipsoids)]. Both MC and NLLS solve only for hard ferromagnetic interference (offset from now on) and scale factors.
+It is important to note that only scale factor and hard ferromagnetic interference will be considered in the calibration as main sources of measurement bias, although non-orthogonalities and soft ferromagnetic interference are still present. The only method that is able to account for all the aforementioned sources of bias (hard/soft ferromagnetic interfernce, scale factors and non-orthogonalities) is the ALQ method, that is developed directly following the procedure described in [[2](https://www.researchgate.net/publication/303721929_Complete_triaxis_magnetometer_calibration_in_the_magnetic_domain)],[[1](https://www.researchgate.net/publication/39994614_Consistent_least_squares_fitting_of_ellipsoids)]. Both MC and NLLS solve only for hard ferromagnetic interference (offset from now on) and scale factors.
 
 Given this semplifications, it is important to define a simple model that describes how the magnetometer senses and external magnetic field. 
 A deeper and more precise description of this simplified model can be found in [[2](https://www.researchgate.net/publication/303721929_Complete_triaxis_magnetometer_calibration_in_the_magnetic_domain)]
@@ -105,7 +105,7 @@ H<sub>calibrated</sub> = H<sub>measured</sub> x Scale<sup>^-1</sup>-offset
 
 
 # NLLS Calibration 
-The NLLS calibration is accomplished using a non linear model describing the offset in the norm square between a given model function *f* and the real refernce magnetic field intensity H^2. The problem consist in finding the solution to 
+The NLLS calibration is accomplished using a nonlinear model describing the offset in the norm square between a given model function *f* and the real refernce magnetic field intensity H^2. The problem consist in finding the solution to 
 
 min(S) = min(sum(H^2-f<sub>i</sub>(H_<sub>x</sub>,<sub>y</sub>,H<sub>z</sub>,beta)^2)) for i=1,2,3 .. N
 
@@ -202,7 +202,7 @@ The solution to the problem will be given as the matrix A which contains the sca
 
 |![](<images/scatter_sol.jpg>)|
 |:--:| 
-| Fig 4: Scatter plot of the final calibartion. Blue dots are the initial measurements, while the red dots are the calibrated measurements. It is possible to appreciate how the blue dots are reset on the ideal sphere |
+| Fig 4: Scatter plot of the final calibration. Blue dots are the initial measurements, while the red dots are the calibrated measurements. It is possible to appreciate how the blue dots are reset on the ideal sphere |
 
 The Graphical result from the calibration can be appreciated by Fig 4. The sphere represent the ideal magnetometer measurments which should all have the same intensity equal to the external magnetic field intensity for any given random direction. The blue dots are reset on the ideal sphere after the calibartion is succesfully accomplished. To pass from calibrated to uncalibrated measurement is is siomply a matter of applying the standard model for the measured magnetic field as given before :
 
